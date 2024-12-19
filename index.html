@@ -1,37 +1,566 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
-    <style>
-      body {font-family: Source Code Pro;}
-      a {color:royalblue; text-decoration: none;}
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leping Wang</title>
+    <meta
+      name="description"
+      content="Leping Wang is a sociology researcher at Boston University, specializing in medical sociology, aging, social networks, and quantitative methods."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+      :root {
+        --primary-color: #1a365d;
+        --secondary-color: #2b6cb0;
+        --text-color: #2d3748;
+        --background-color: #f8fafc;
+        --subtle-color: #e2e8f0;
+        --hover-color: #ebf4ff;
+        --transition: all 0.2s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.7;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .icon-small {
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-small > * {
+        width: 100%;
+        height: 100%;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 1rem 0;
+        font-weight: 500;
+      }
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--subtle-color);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      h2 i {
+        width: 24px;
+        height: 24px;
+        stroke: var(--primary-color);
+      }
+
+      .profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+        border: 2px solid var(--secondary-color);
+        transition: var(--transition);
+      }
+
+      .contact-info {
+        margin: 1rem 0;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .contact-item a {
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .contact-item a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--secondary-color);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.2s ease;
+        border-radius: 5px;
+      }
+
+      .contact-item a:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-link {
+        color: var(--secondary-color);
+        text-decoration: none;
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        background-color: #edf2f7;
+        font-weight: 500;
+      }
+
+      .social-link:hover {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .social-link i {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+      }
+
+      .custom-icon {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+      }
+
+      .research-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin: 2rem 0;
+      }
+
+      .research-tag {
+        background: #edf2f7;
+        color: var(--text-color);
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        border: none;
+        font-weight: 500;
+      }
+
+      .section {
+        margin: 4rem 0;
+        padding: 0 2rem;
+      }
+
+      .section:first-of-type {
+        margin-top: 2rem;
+      }
+
+      .education-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--subtle-color);
+    }
+
+    .education-item:last-child {
+      border-bottom: none;
+    }
+
+    .degree-container {
+      margin-bottom: 0.8rem;
+    }
+
+    .degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      /* color: var(--primary-color); */
+      color: #1a365d;
+      font-weight: 600;
+      line-height: 1.4;
+      display: inline;
+    }
+
+    .year {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      font-size: 1rem;
+      font-weight: 500;
+      display: inline;
+      margin-left: 0.5rem;
+    }
+
+    .institution {
+      font-size: 1.1rem;
+      color: #201b25;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .thesis {
+      font-size: 1rem;
+      color: #4a5568; /* Darker gray */
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--subtle-color);
+    }
+
+      .publications-list {
+        list-style: none;
+      }
+
+      .publication-item {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--subtle-color);
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .publication-item:last-child {
+        border-bottom: none;
+      }
+
+      .publication-item em {
+        color: var(--secondary-color);
+      }
+
+      .publication-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        padding-right: 2rem;
+        position: relative;
+      }
+
+      .publication-link:hover {
+        color: var(--secondary-color);
+      }
+
+      .publication-link::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232b6cb0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'%3E%3C/path%3E%3C/svg%3E");
+        background-size: contain;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .publication-link:hover::after {
+        opacity: 1;
+      }
+
+      .tooltip {
+        position: absolute;
+        background: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        top: -45px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        z-index: 100;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        border: 1px solid var(--subtle-color);
+      }
+
+      .publication-link:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 0.2rem 0.8rem;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-left: 0.5rem;
+      }
+
+      .status-review {
+        background-color: #e0f2fe;
+        color: #0369a1;
+      }
+
+      .status-prep {
+        background-color: #e0e7ff;
+        color: #3730a3;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .section {
+          padding: 0 1rem;
+          margin: 3rem 0;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .contact-info {
+          gap: 0.8rem;
+          font-size: 0.9rem;
+        }
+
+        .degree {
+          font-size: 1.1rem;
+        }
+
+        .tooltip {
+          display: none;
+        }        
+      }
+    </style>
   </head>
   <body>
-    <div style = "margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
-      <img src = "https://github.com/lepingwang928.png" style = "border-radius:50%; display:block; margin:auto; width:40%;">
-      <h1 style = "text-align:center">
-        <nobr>Leping Wang</nobr>
-      </h1>
-      <h4 style = "text-align:center; font-weight:normal;">
-        <nobr>Boston University | Sociology</nobr>
-      </p>
-	<nobr>Medical Sociology | Aging | Social Networks</nobr>
-      </p>
-	<nobr>Quantitative Methods | Mixed Methods</nobr>
-      </p>       
-      </h4>
-      <p style = "text-align:center;">
-	<nobr>lw928@bu.edu</nobr>   
-      </p>
-      <p style = "text-align:center;">
-        <nobr>
-          <a href = "https://cdn.jsdelivr.net/gh/lepingwang928/CV@master/Wang_CV_Dec 2024.pdf">CV</a> •
-          <a href = "https://scholar.google.com/citations?user=59uK8TIAAAAJ&hl=en&oi=ao">Google Scholar</a> •
-	  <a href="https://orcid.org/0000-0001-8071-422X">ORCID</a>
-        </nobr>
-      </p>
+    <div class="container">
+      <div class="header">
+        <img
+          src="https://github.com/lepingwang928.png"
+          alt="Leping Wang"
+          class="profile-img"
+        />
+        <h1>Leping Wang</h1>
+        <div class="contact-info">
+          <span class="contact-item">
+            <div class="icon-small"><i data-feather="book"></i></div>
+            Department of Sociology, Boston University
+          </span>
+          <span class="contact-item">
+            <div class="icon-small"><i data-feather="mail"></i></div>
+            <a
+              href="mailto:lw928@bu.edu"
+              style="color: inherit; text-decoration: none"
+              >lw928@bu.edu</a
+            >
+          </span>
+        </div>
+
+        <div class="social-links">
+          <a
+            href="https://cdn.jsdelivr.net/gh/lepingwang928/CV@master/Wang_CV_Dec%202024.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <i data-feather="file-text"></i> CV
+          </a>
+          <a
+            href="https://scholar.google.com/citations?user=59uK8TIAAAAJ&hl=en&oi=ao"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <svg
+              class="custom-icon"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"
+              />
+            </svg>
+            Scholar
+          </a>
+          <a
+            href="https://orcid.org/0000-0001-8071-422X"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <img
+              src="assets/images/orcid.svg"
+              alt="ORCID"
+              class="custom-icon"
+            />
+            ORCID
+          </a>
+        </div>
+
+        <div class="research-tags">
+          <span class="research-tag">
+           <div class="icon-small"><i data-feather="heart"></div></i> Medical Sociology
+          </span>
+          <span class="research-tag">
+            <div class="icon-small"><i data-feather="users"></div></i> Aging </span>
+          <span class="research-tag">
+            <div class="icon-small"><i data-feather="share-2"></div></i> Social Networks
+          </span>
+          <span class="research-tag">
+            <div class="icon-small"><i data-feather="bar-chart-2"></div></i> Quantitative Methods
+          </span>
+          <span class="research-tag">
+            <div class="icon-small"><i data-feather="trending-up"></div></i> Social Inequality
+          </span>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2><i data-feather="book-open"></i> Selected Publications</h2>
+        <ul class="publications-list">
+          <li class="publication-item">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S0276562424001100"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="publication-link"
+            >
+              Wang, Leping. 2025. "Human Capital and the Upward Occupational
+              Mobility of Rural Migrant Workers in China."
+              <em>Research in Social Stratification and Mobility</em>
+              95(100997):100997.
+              <span class="tooltip">Click to view publication</span>
+            </a>
+          </li>
+
+          <li class="publication-item">
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S0049089X24000899"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="publication-link"
+            >
+              Bacon, Rachel, and Leping Wang. 2024. "Selection into Higher
+              Education and Subsequent Religious Decline in a United States
+              Cohort."
+              <em>Social Science Research</em> 124: 103067.
+              <span class="tooltip">Click to view publication</span>
+            </a>
+          </li>
+
+          <li class="publication-item">
+            <a
+              href="https://onlinelibrary.wiley.com/doi/10.1111/jomf.13011"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="publication-link"
+            >
+              Carr, Deborah, Leping Wang, and Pamela Smock. 2024. "Gender
+              Differences in the Economic Consequences of Life-long Singlehood
+              among Older White US Adults."
+              <em>Journal of Marriage and Family</em> 86(4): 1053-74.
+              <span class="tooltip">Click to view publication</span>
+            </a>
+          </li>
+
+          <li class="publication-item">
+            Wang, Leping. "Changes in Social Connectedness During Versus Before
+            COVID-19 and Loneliness among Older Adults."
+            <span class="status-badge status-review">Under Review</span>
+          </li>
+
+          <li class="publication-item">
+            Wang, Leping, and Yang (Claire) Yang. "The Impact of Marital
+            Trajectories on Late-Life Social Isolation among Older Adults: A
+            U.S.-China Comparison."
+            <span class="status-badge status-prep">In Preparation</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2><i data-feather="book"></i> Education</h2>
+        <div class="education-item">
+      <div class="degree-container">
+        <span class="degree">Ph.D. in Sociology</span>
+        <span class="year">(Expected May 2025)</span>
+      </div>
+      <div class="institution">Boston University</div>
+      <div class="thesis">
+        Dissertation: The Impact of Social Connectedness and Social Capital on Older Adults' Mental and Cognitive Health: A U.S.- China Comparison
+      </div>
     </div>
-	</body>
+
+    <div class="education-item">
+      <div class="degree-container">
+        <span class="degree">M.A. in Applied Quantitative Research</span>
+        <span class="year">(2020)</span>
+      </div>
+      <div class="institution">New York University</div>
+    </div>
+
+    <div class="education-item">
+      <div class="degree-container">
+        <span class="degree">L.L.B. in Sociology</span>
+        <span class="year">(2018)</span>
+      </div>
+      <div class="institution">Xiamen University, China</div>
+    </div>
+  </section>
+    </div>
+
+    <script>
+      // Initialize Feather Icons
+      feather.replace();
+    </script>
+  </body>
 </html>
