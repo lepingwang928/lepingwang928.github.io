@@ -43,7 +43,7 @@
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        margin: 1rem 0;
+        margin-top: 1rem;
       }
 
       .social-buttons {
@@ -161,7 +161,6 @@
       }
 
       .contact-info {
-        margin: 1rem 0;
         display: flex;
         align-items: end;
         justify-content: center;
@@ -213,7 +212,7 @@
         display: flex;
         justify-content: center;
         gap: 1rem;
-        margin: 1.5rem 0;
+        margin-top: 2rem;
       }
 
       .social-link {
@@ -250,19 +249,26 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8rem;
-        margin: 2rem 0;
+        gap: 0.7rem;
+        max-width: 600px;
+        margin-top: 2rem;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        width: 100%;
       }
 
       .research-tag {
         background: #edf2f7;
         color: var(--text-color);
-        padding: 0.5rem 1.2rem;
+        padding: 0.35rem 0.9rem;
         border-radius: 4px;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         display: flex;
         align-items: center;
-        gap: 0.8rem;
+        gap: 0.7rem;
         border: none;
         font-weight: 500;
       }
@@ -447,6 +453,60 @@
         .tooltip {
           display: none;
         }
+
+        .research-tag {
+          padding: 0.25rem 0.6rem;
+          font-size: 0.75rem;
+          gap: 0.5rem;
+        }
+
+        .research-tag .icon-small {
+          width: 14px;
+          height: 14px;
+        }
+
+        .research-tags {
+          gap: 0.5rem;
+        }
+
+        .social-link {
+          padding: 0.35rem 0.8rem;
+          font-size: 0.85rem;
+          gap: 0.5rem;
+        }
+
+        .social-link i,
+        .social-link .custom-icon {
+          width: 14px;
+          height: 14px;
+        }
+
+        .social-links {
+          gap: 0.7rem;
+        }
+
+        .name-container h1 {
+          font-size: 1.5rem;
+        }
+
+        .social-buttons {
+          margin-top: 0.3rem;
+        }
+
+        .social-buttons a {
+          width: 24px;
+          height: 24px;
+        }
+
+        .social-buttons a svg {
+          width: 12px;
+          height: 12px;
+        }
+
+        .social-buttons a img {
+          width: 12px;
+          height: 12px;
+        }
       }
     </style>
   </head>
@@ -507,27 +567,29 @@
           </a>
         </div>
 
-        <div class="research-tags">
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="heart"></i></div>
-            Medical Sociology
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="users"></i></div>
-            Aging
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="share-2"></i></div>
-            Social Networks
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="bar-chart-2"></i></div>
-            Quantitative Methods
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="trending-up"></i></div>
-            Social Inequality
-          </span>
+        <div class="center">
+          <div class="research-tags">
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="heart"></i></div>
+              Medical Sociology
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="users"></i></div>
+              Aging
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="share-2"></i></div>
+              Social Networks
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="bar-chart-2"></i></div>
+              Quantitative Methods
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="trending-up"></i></div>
+              Social Inequality
+            </span>
+          </div>
         </div>
       </div>
 
