@@ -38,6 +38,68 @@
         -webkit-font-smoothing: antialiased;
       }
 
+      .name-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-buttons {
+        display: flex;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+      .social-button {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #edf2f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        transition: var(--transition);
+        border: 1px solid #00000011;
+        cursor: pointer;
+        text-decoration: none;
+        position: relative; /* Added for absolute positioning of pseudo-element */
+      }
+      .social-button::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 50%;
+        border: 2px solid var(--secondary-color);
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.15s ease-in-out;
+      }
+      .social-button:hover::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .social-button svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+      }
+      .social-button img {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+      }
+
+      .social-button img {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+      }
+
       .icon-small {
         width: 16px;
         height: 16px;
@@ -52,7 +114,7 @@
       }
 
       .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 2rem;
       }
@@ -99,7 +161,6 @@
       }
 
       .contact-info {
-        margin: 1rem 0;
         display: flex;
         align-items: end;
         justify-content: center;
@@ -118,6 +179,9 @@
         color: inherit;
         text-decoration: none;
         position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
 
       .contact-item a::after {
@@ -125,7 +189,7 @@
         position: absolute;
         width: 100%;
         height: 1px;
-        bottom: -2px;
+        bottom: -1px;
         left: 0;
         background-color: var(--secondary-color);
         transform: scaleX(0);
@@ -139,11 +203,16 @@
         transform-origin: bottom left;
       }
 
+      .contact-item svg {
+        width: 16px;
+        height: 16px;
+      }
+
       .social-links {
         display: flex;
         justify-content: center;
         gap: 1rem;
-        margin: 1.5rem 0;
+        margin-top: 2rem;
       }
 
       .social-link {
@@ -180,19 +249,26 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8rem;
-        margin: 2rem 0;
+        gap: 0.7rem;
+        max-width: 600px;
+        margin-top: 2rem;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        width: 100%;
       }
 
       .research-tag {
         background: #edf2f7;
         color: var(--text-color);
-        padding: 0.5rem 1.2rem;
+        padding: 0.35rem 0.9rem;
         border-radius: 4px;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         display: flex;
         align-items: center;
-        gap: 0.8rem;
+        gap: 0.7rem;
         border: none;
         font-weight: 500;
       }
@@ -207,54 +283,54 @@
       }
 
       .education-item {
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--subtle-color);
-    }
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--subtle-color);
+      }
 
-    .education-item:last-child {
-      border-bottom: none;
-    }
+      .education-item:last-child {
+        border-bottom: none;
+      }
 
-    .degree-container {
-      margin-bottom: 0.8rem;
-    }
+      .degree-container {
+        margin-bottom: 0.8rem;
+      }
 
-    .degree {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      /* color: var(--primary-color); */
-      color: #1a365d;
-      font-weight: 600;
-      line-height: 1.4;
-      display: inline;
-    }
+      .degree {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        /* color: var(--primary-color); */
+        color: #1a365d;
+        font-weight: 600;
+        line-height: 1.4;
+        display: inline;
+      }
 
-    .year {
-      font-family: 'Playfair Display', serif;
-      color: var(--text-color);
-      font-size: 1rem;
-      font-weight: 500;
-      display: inline;
-      margin-left: 0.5rem;
-    }
+      .year {
+        font-family: 'Playfair Display', serif;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-weight: 500;
+        display: inline;
+        margin-left: 0.5rem;
+      }
 
-    .institution {
-      font-size: 1.1rem;
-      color: #201b25;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      position: relative;
-    }
+      .institution {
+        font-size: 1.1rem;
+        color: #201b25;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        position: relative;
+      }
 
-    .thesis {
-      font-size: 1rem;
-      color: #4a5568; /* Darker gray */
-      font-style: italic;
-      line-height: 1.6;
-      margin-top: 1rem;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--subtle-color);
-    }
+      .thesis {
+        font-size: 1rem;
+        color: #4a5568; /* Darker gray */
+        font-style: italic;
+        line-height: 1.6;
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        border-left: 2px solid var(--subtle-color);
+      }
 
       .publications-list {
         list-style: none;
@@ -330,9 +406,9 @@
 
       .status-badge {
         display: inline-block;
-        padding: 0.2rem 0.8rem;
+        padding: 0.15rem 0.7rem;
         border-radius: 3px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         font-weight: 500;
         margin-left: 0.5rem;
       }
@@ -376,31 +452,89 @@
 
         .tooltip {
           display: none;
-        }        
+        }
+
+        .research-tag {
+          padding: 0.25rem 0.6rem;
+          font-size: 0.75rem;
+          gap: 0.5rem;
+        }
+
+        .research-tag .icon-small {
+          width: 14px;
+          height: 14px;
+        }
+
+        .research-tags {
+          gap: 0.5rem;
+        }
+
+        .social-link {
+          padding: 0.35rem 0.8rem;
+          font-size: 0.85rem;
+          gap: 0.5rem;
+        }
+
+        .social-link i,
+        .social-link .custom-icon {
+          width: 14px;
+          height: 14px;
+        }
+
+        .social-links {
+          gap: 0.7rem;
+        }
+
+        .name-container h1 {
+          font-size: 1.5rem;
+        }
+
+        .social-buttons {
+          margin-top: 0.3rem;
+        }
+
+        .social-buttons a {
+          width: 24px;
+          height: 24px;
+        }
+
+        .social-buttons a svg {
+          width: 12px;
+          height: 12px;
+        }
+
+        .social-buttons a img {
+          width: 12px;
+          height: 12px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <img
-          src="https://github.com/lepingwang928.png"
-          alt="Leping Wang"
-          class="profile-img"
-        />
-        <h1>Leping Wang</h1>
+        <img src="https://github.com/lepingwang928.png" alt="Leping Wang" class="profile-img" />
+        <div class="name-container">
+          <h1>Leping Wang</h1>
+          <div class="social-buttons">
+            <a href="https://www.linkedin.com/in/leping-w-13906b162" title="LinkedIn" class="social-button">
+              <i data-feather="linkedin"></i>
+            </a>
+            <a href="https://x.com/LepingWangSoc" title="X (Twitter)" class="social-button">
+              <img src="assets/images/x-logo.svg" alt="X (Twitter)" />
+            </a>
+          </div>
+        </div>
         <div class="contact-info">
           <span class="contact-item">
             <div class="icon-small"><i data-feather="book"></i></div>
             Department of Sociology, Boston University
           </span>
           <span class="contact-item">
-            <div class="icon-small"><i data-feather="mail"></i></div>
-            <a
-              href="mailto:lw928@bu.edu"
-              style="color: inherit; text-decoration: none"
-              >lw928@bu.edu</a
-            >
+            <a href="mailto:lw928@bu.edu" style="color: inherit; text-decoration: none">
+              <i data-feather="mail"></i>
+              <span>lw928@bu.edu</span>
+            </a>
           </span>
         </div>
 
@@ -419,11 +553,7 @@
             rel="noopener noreferrer"
             class="social-link"
           >
-            <svg
-              class="custom-icon"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg class="custom-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 fill="currentColor"
                 d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"
@@ -431,36 +561,35 @@
             </svg>
             Scholar
           </a>
-          <a
-            href="https://orcid.org/0000-0001-8071-422X"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-          >
-            <img
-              src="assets/images/orcid.svg"
-              alt="ORCID"
-              class="custom-icon"
-            />
+          <a href="https://orcid.org/0000-0001-8071-422X" target="_blank" rel="noopener noreferrer" class="social-link">
+            <img src="assets/images/orcid.svg" alt="ORCID" class="custom-icon" />
             ORCID
           </a>
         </div>
 
-        <div class="research-tags">
-          <span class="research-tag">
-           <div class="icon-small"><i data-feather="heart"></div></i> Medical Sociology
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="users"></div></i> Aging </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="share-2"></div></i> Social Networks
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="bar-chart-2"></div></i> Quantitative Methods
-          </span>
-          <span class="research-tag">
-            <div class="icon-small"><i data-feather="trending-up"></div></i> Social Inequality
-          </span>
+        <div class="center">
+          <div class="research-tags">
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="heart"></i></div>
+              Medical Sociology
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="users"></i></div>
+              Aging
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="share-2"></i></div>
+              Social Networks
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="bar-chart-2"></i></div>
+              Quantitative Methods
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i data-feather="trending-up"></i></div>
+              Social Inequality
+            </span>
+          </div>
         </div>
       </div>
 
@@ -474,8 +603,7 @@
               rel="noopener noreferrer"
               class="publication-link"
             >
-              Wang, Leping. 2025. "Human Capital and the Upward Occupational
-              Mobility of Rural Migrant Workers in China."
+              Wang, Leping. 2025. "Human Capital and the Upward Occupational Mobility of Rural Migrant Workers in China."
               <em>Research in Social Stratification and Mobility</em>
               95(100997):100997.
               <span class="tooltip">Click to view publication</span>
@@ -489,8 +617,7 @@
               rel="noopener noreferrer"
               class="publication-link"
             >
-              Bacon, Rachel, and Leping Wang. 2024. "Selection into Higher
-              Education and Subsequent Religious Decline in a United States
+              Bacon, Rachel, and Leping Wang. 2024. "Selection into Higher Education and Subsequent Religious Decline in a United States
               Cohort."
               <em>Social Science Research</em> 124: 103067.
               <span class="tooltip">Click to view publication</span>
@@ -504,8 +631,7 @@
               rel="noopener noreferrer"
               class="publication-link"
             >
-              Carr, Deborah, Leping Wang, and Pamela Smock. 2024. "Gender
-              Differences in the Economic Consequences of Life-long Singlehood
+              Carr, Deborah, Leping Wang, and Pamela Smock. 2024. "Gender Differences in the Economic Consequences of Life-long Singlehood
               among Older White US Adults."
               <em>Journal of Marriage and Family</em> 86(4): 1053-74.
               <span class="tooltip">Click to view publication</span>
@@ -513,14 +639,43 @@
           </li>
 
           <li class="publication-item">
-            Carr, Deborah, Leping Wang, and Pamela Smock. “Do Social Security 
-            Benefits Rules Perpetuate Marital Status and Gender Inequalities?” 
+            <a
+              href="https://www.pagepressjournals.org/hls/article/view/12394"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="publication-link"
+            >
+              Richards, Lindsay, Leping Wang, Joashilia Jeanmarie, Shirin Shafazand, Daniel Palazuelos, and Vitina Monacello. 2024.
+              "Understanding the Impact of a Social Support Program in Immokalee, FL, during the COVID-19 Pandemic."
+              <em>Healthcare in Low-resource Settings</em>.
+              <span class="tooltip">Click to view publication</span>
+            </a>
+          </li>
+
+          <li class="publication-item">
+            <a
+              href="https://www.tandfonline.com/doi/full/10.1080/16549716.2021.2015743"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="publication-link"
+            >
+              Ballard, Madeleine, Helen Elizabeth Olsen, Caroline Whidden, Daniele Ressler, Lynn Metz, Anoushka Millear, Daniel Palazuelos,
+              Nandini Choudhury, Fabien Munyaneza, Rene Diane, Kelly Lue, P. Émile Bobozi, Anant Raut, Andriamanolohaja Ramarson, Mamy
+              Andrianomenjanahary, Karen Finnegan, Carey Westgate, Wycliffe Omwanda, Leping Wang, David Citrin, Ash Rogers, Moses Banda
+              Aron, Molly Christiansen, Agnes Watsemba, Rehan Adamjee, and Amanda Yembrick. 2022. "Lessons from an Eight-country Community
+              Health Data Harmonization Collaborative." <em>Global Health Action</em> 15(1): 1-9.
+              <span class="tooltip">Click to view publication</span>
+            </a>
+          </li>
+
+          <li class="publication-item">
+            Carr, Deborah, Leping Wang, and Pamela Smock. “Do Social Security Benefits Rules Perpetuate Marital Status and Gender
+            Inequalities?”
             <span class="status-badge status-review">Revised and Resubmitted to The Gerontologist</span>
           </li>
 
           <li class="publication-item">
-            Wang, Leping, and Yang (Claire) Yang. "The Impact of Marital
-            Trajectories on Late-Life Social Isolation among Older Adults: A
+            Wang, Leping, and Yang (Claire) Yang. "The Impact of Marital Trajectories on Late-Life Social Isolation among Older Adults: A
             U.S.-China Comparison."
             <span class="status-badge status-prep">In Preparation</span>
           </li>
@@ -530,32 +685,33 @@
       <section class="section">
         <h2><i data-feather="book"></i> Education</h2>
         <div class="education-item">
-      <div class="degree-container">
-        <span class="degree">Ph.D. in Sociology</span>
-        <span class="year">(Expected May 2025)</span>
-      </div>
-      <div class="institution">Boston University</div>
-      <div class="thesis">
-        Dissertation: The Impact of Social Connectedness and Social Capital on Older Adults' Mental and Cognitive Health: A U.S.- China Comparison
-      </div>
-    </div>
+          <div class="degree-container">
+            <span class="degree">Ph.D. in Sociology</span>
+            <span class="year">(Expected May 2025)</span>
+          </div>
+          <div class="institution">Boston University</div>
+          <div class="thesis">
+            Dissertation: The Impact of Social Connectedness and Social Capital on Older Adults' Mental and Cognitive Health: A U.S.- China
+            Comparison
+          </div>
+        </div>
 
-    <div class="education-item">
-      <div class="degree-container">
-        <span class="degree">M.A. in Applied Quantitative Research</span>
-        <span class="year">(2020)</span>
-      </div>
-      <div class="institution">New York University</div>
-    </div>
+        <div class="education-item">
+          <div class="degree-container">
+            <span class="degree">M.A. in Applied Quantitative Research</span>
+            <span class="year">(2020)</span>
+          </div>
+          <div class="institution">New York University</div>
+        </div>
 
-    <div class="education-item">
-      <div class="degree-container">
-        <span class="degree">L.L.B. in Sociology</span>
-        <span class="year">(2018)</span>
-      </div>
-      <div class="institution">Xiamen University, China</div>
-    </div>
-  </section>
+        <div class="education-item">
+          <div class="degree-container">
+            <span class="degree">L.L.B. in Sociology</span>
+            <span class="year">(2018)</span>
+          </div>
+          <div class="institution">Xiamen University, China</div>
+        </div>
+      </section>
     </div>
 
     <script>
