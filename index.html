@@ -681,6 +681,12 @@
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
       }
 
+      .award-featured-img:focus-visible {
+        outline: 3px solid var(--secondary-color);
+        outline-offset: 4px;
+        transform: translateY(-4px);
+      }
+
       .award-text {
         flex: 1;
       }
@@ -729,6 +735,12 @@
         transform: scale(1.1) rotate(-3deg);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         border-color: var(--secondary-color);
+      }
+
+      .thumbnail:focus-visible {
+        outline: 3px solid var(--secondary-color);
+        outline-offset: 2px;
+        transform: scale(1.1);
       }
 
       /* Modal */
@@ -793,6 +805,12 @@
         transform: rotate(90deg);
       }
 
+      .modal-close:focus-visible {
+        outline: 3px solid white;
+        outline-offset: 2px;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
       .modal-nav {
         position: absolute;
         top: 50%;
@@ -815,6 +833,12 @@
 
       .modal-nav:hover {
         background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .modal-nav:focus-visible {
+        outline: 3px solid white;
+        outline-offset: 2px;
+        background-color: rgba(255, 255, 255, 0.3);
       }
 
       .modal-nav i {
@@ -1281,6 +1305,8 @@
                 decoding="async"
                 data-award="gsa"
                 data-index="0"
+                tabindex="0"
+                role="button"
               />
             </picture>
             <div class="award-text">
@@ -1300,6 +1326,8 @@
                     decoding="async"
                     data-award="gsa"
                     data-index="0"
+                    tabindex="0"
+                    role="button"
                   />
                 </picture>
                 <picture>
@@ -1314,6 +1342,8 @@
                     decoding="async"
                     data-award="gsa"
                     data-index="1"
+                    tabindex="0"
+                    role="button"
                   />
                 </picture>
                 <picture>
@@ -1328,6 +1358,8 @@
                     decoding="async"
                     data-award="gsa"
                     data-index="2"
+                    tabindex="0"
+                    role="button"
                   />
                 </picture>
               </div>
@@ -1348,6 +1380,8 @@
                 decoding="async"
                 data-award="teaching"
                 data-index="0"
+                tabindex="0"
+                role="button"
               />
             </picture>
             <div class="award-text">
@@ -1367,6 +1401,8 @@
                     decoding="async"
                     data-award="teaching"
                     data-index="0"
+                    tabindex="0"
+                    role="button"
                   />
                 </picture>
                 <picture>
@@ -1381,6 +1417,8 @@
                     decoding="async"
                     data-award="teaching"
                     data-index="1"
+                    tabindex="0"
+                    role="button"
                   />
                 </picture>
               </div>
@@ -1390,7 +1428,7 @@
       </section>
 
       <!-- Image Modal -->
-      <div id="imageModal" class="modal">
+      <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="modal-close" aria-label="Close modal">&times;</button>
         <button class="modal-nav modal-prev" aria-label="Previous image">
           <i data-feather="chevron-left"></i>
@@ -1570,9 +1608,13 @@
 
         let currentAward = null;
         let currentIndex = 0;
+        let lastFocusedElement = null;
 
         // Open modal with specific image
         function openModal(award, index) {
+          // Store the currently focused element
+          lastFocusedElement = document.activeElement;
+
           currentAward = award;
           currentIndex = index;
           showImage();
@@ -1580,13 +1622,23 @@
           document.body.style.overflow = 'hidden';
 
           // Reinitialize feather icons for modal buttons
-          setTimeout(() => feather.replace(), 10);
+          setTimeout(() => {
+            feather.replace();
+            // Set focus to close button for accessibility
+            closeBtn.focus();
+          }, 10);
         }
 
         // Close modal
         function closeModal() {
           modal.classList.remove('active');
           document.body.style.overflow = '';
+
+          // Restore focus to the element that opened the modal
+          if (lastFocusedElement) {
+            lastFocusedElement.focus();
+            lastFocusedElement = null;
+          }
         }
 
         // Show current image with WebP and JPEG fallback
@@ -1594,6 +1646,7 @@
           if (currentAward && awardImages[currentAward]) {
             const images = awardImages[currentAward];
             const image = images[currentIndex];
+            const position = `${currentIndex + 1} of ${images.length}`;
 
             // Try WebP first, fallback to JPEG if it fails
             modalImage.onerror = function() {
@@ -1602,6 +1655,9 @@
             };
             modalImage.src = image.src;
             modalImage.alt = image.alt;
+
+            // Add position information for screen readers
+            modalImage.setAttribute('aria-label', `${image.alt}, image ${position}`);
           }
         }
 
@@ -1630,6 +1686,18 @@
             const index = parseInt(this.dataset.index);
             openModal(award, index);
           });
+
+          // Add keyboard support (Space bar and Enter)
+          img.addEventListener('keydown', function(e) {
+            // Check for Enter (13) or Space (32)
+            if (e.keyCode === 13 || e.keyCode === 32 || e.key === 'Enter' || e.key === ' ' || e.code === 'Space') {
+              e.preventDefault(); // Prevent default behavior and page scroll
+              e.stopPropagation(); // Stop event bubbling
+              const award = this.dataset.award;
+              const index = parseInt(this.dataset.index);
+              openModal(award, index);
+            }
+          });
         });
 
         // Close button
@@ -1652,6 +1720,8 @@
 
           switch(e.key) {
             case 'Escape':
+            case ' ': // Space bar
+              e.preventDefault(); // Prevent page scroll
               closeModal();
               break;
             case 'ArrowLeft':
