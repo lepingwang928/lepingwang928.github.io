@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <script src="https://kit.fontawesome.com/dcae19d2ac.js" crossorigin="anonymous"></script>
     <style>
       :root {
         --primary-color: #1a365d;
@@ -496,6 +497,133 @@
         font-weight: 500;
       }
 
+      /* Gender Tag Interactive Styles */
+      .research-tag--gender {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .research-tag--gender:focus {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 2px;
+      }
+
+      .gender-icon-container {
+        position: relative;
+      }
+
+      .gender-dropdown {
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        transform: translateX(-50%) translateY(5px);
+        z-index: 100;
+      }
+
+      .gender-dropdown::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid white;
+      }
+
+      .gender-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .gender-dropdown-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border: none;
+        background: transparent;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.15s ease, transform 0.15s ease;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      .gender-tooltip {
+        position: absolute;
+        bottom: calc(100% + 4px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text-color);
+        color: white;
+        font-size: 0.6rem;
+        padding: 2px 5px;
+        border-radius: 3px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s ease, visibility 0.15s ease;
+        pointer-events: none;
+      }
+
+      .gender-dropdown-item:hover .gender-tooltip,
+      .gender-dropdown-item:focus .gender-tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .gender-dropdown-item:hover,
+      .gender-dropdown-item:focus {
+        background-color: var(--hover-color);
+        transform: scale(1.1);
+      }
+
+      .gender-dropdown-item:focus {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 1px;
+      }
+
+      .gender-dropdown-item.selected {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .gender-dropdown-item.selected .gender-tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .gender-icon-container i {
+        transition: opacity 0.15s ease;
+      }
+
+      .gender-icon-container.cycling i {
+        animation: fadeInOut 0.3s ease;
+      }
+
+      @keyframes fadeInOut {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
       .section {
         margin: 4rem 0;
         padding: 0 2rem;
@@ -945,6 +1073,17 @@
           gap: 0.5rem;
         }
 
+        .gender-dropdown {
+          padding: 0.5rem;
+          gap: 0.35rem;
+        }
+
+        .gender-dropdown-item {
+          width: 38px;
+          height: 38px;
+          font-size: 1rem;
+        }
+
         .social-link {
           padding: 0.35rem 0.8rem;
           font-size: 0.85rem;
@@ -1145,24 +1284,60 @@
         <div class="center">
           <div class="research-tags">
             <span class="research-tag">
-              <div class="icon-small"><i data-feather="heart"></i></div>
+              <div class="icon-small"><i class="fas fa-heartbeat"></i></div>
               Medical Sociology
             </span>
+            <span class="research-tag research-tag--gender" id="genderTag" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+              <div class="icon-small gender-icon-container">
+                <i class="fas fa-venus" id="genderIcon"></i>
+              </div>
+              Gender
+              <div class="gender-dropdown" id="genderDropdown" role="listbox" aria-label="Select gender icon">
+                <button class="gender-dropdown-item" data-icon="fa-venus" data-label="Female" role="option" aria-label="Female">
+                  <span class="gender-tooltip">Female</span>
+                  <i class="fas fa-venus"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-mars" data-label="Male" role="option" aria-label="Male">
+                  <span class="gender-tooltip">Male</span>
+                  <i class="fas fa-mars"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-venus-mars" data-label="Cisgender" role="option" aria-label="Cisgender">
+                  <span class="gender-tooltip">Cisgender</span>
+                  <i class="fas fa-venus-mars"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-transgender" data-label="Transgender" role="option" aria-label="Transgender">
+                  <span class="gender-tooltip">Transgender</span>
+                  <i class="fas fa-transgender"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-genderless" data-label="Genderless" role="option" aria-label="Genderless">
+                  <span class="gender-tooltip">Genderless</span>
+                  <i class="fas fa-genderless"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-neuter" data-label="Neuter" role="option" aria-label="Neuter">
+                  <span class="gender-tooltip">Neuter</span>
+                  <i class="fas fa-neuter"></i>
+                </button>
+                <button class="gender-dropdown-item" data-icon="fa-mercury" data-label="Non-binary" role="option" aria-label="Non-binary">
+                  <span class="gender-tooltip">Non-binary</span>
+                  <i class="fas fa-mercury"></i>
+                </button>
+              </div>
+            </span>
             <span class="research-tag">
-              <div class="icon-small"><i data-feather="users"></i></div>
+              <div class="icon-small"><i class="fas fa-hourglass-half"></i></div>
               Aging
             </span>
             <span class="research-tag">
-              <div class="icon-small"><i data-feather="share-2"></i></div>
+              <div class="icon-small"><i class="fas fa-heart"></i></div>
+              Family Demography
+            </span>
+            <span class="research-tag">
+              <div class="icon-small"><i class="fas fa-diagram-project"></i></div>
               Social Networks
             </span>
             <span class="research-tag">
-              <div class="icon-small"><i data-feather="bar-chart-2"></i></div>
-              Gender
-            </span>
-            <span class="research-tag">
-              <div class="icon-small"><i data-feather="trending-up"></i></div>
-              Social Inequality
+              <div class="icon-small"><i class="fas fa-chart-line"></i></div>
+              Quantitative Methods
             </span>
           </div>
         </div>
@@ -1765,6 +1940,231 @@
           });
         }, 2000);
       });
+
+      // Gender Icon Cycling and Dropdown
+      (function() {
+        const genderTag = document.getElementById('genderTag');
+        const genderIcon = document.getElementById('genderIcon');
+        const genderDropdown = document.getElementById('genderDropdown');
+        const dropdownItems = document.querySelectorAll('.gender-dropdown-item');
+
+        const genderIcons = [
+          'fa-venus',
+          'fa-mars',
+          'fa-venus-mars',
+          'fa-transgender',
+          'fa-genderless',
+          'fa-neuter',
+          'fa-mercury'
+        ];
+
+        let cycleInterval = null;
+        let currentIconIndex = 0; // Start with female (fa-venus)
+        let isDropdownOpen = false;
+        let userSelectedIcon = localStorage.getItem('selectedGenderIcon');
+
+        // Initialize - always cycle, but highlight saved selection in dropdown
+        function initializeIcon() {
+          if (userSelectedIcon) {
+            highlightSelectedItem(userSelectedIcon);
+          }
+          setIcon(genderIcons[currentIconIndex]);
+          startCycling();
+        }
+
+        // Set the current icon
+        function setIcon(iconClass) {
+          genderIcon.className = 'fas ' + iconClass;
+        }
+
+        // Cycle to next icon
+        function cycleIcon() {
+          currentIconIndex = (currentIconIndex + 1) % genderIcons.length;
+          const iconContainer = genderIcon.parentElement;
+          iconContainer.classList.add('cycling');
+
+          setTimeout(() => {
+            setIcon(genderIcons[currentIconIndex]);
+          }, 150);
+
+          setTimeout(() => {
+            iconContainer.classList.remove('cycling');
+          }, 300);
+        }
+
+        // Start automatic cycling
+        function startCycling() {
+          if (cycleInterval) return;
+          cycleInterval = setInterval(cycleIcon, 2500);
+        }
+
+        // Stop automatic cycling
+        function stopCycling() {
+          if (cycleInterval) {
+            clearInterval(cycleInterval);
+            cycleInterval = null;
+          }
+        }
+
+        // Open dropdown
+        function openDropdown() {
+          isDropdownOpen = true;
+          genderDropdown.classList.add('active');
+          genderTag.setAttribute('aria-expanded', 'true');
+          stopCycling();
+        }
+
+        // Close dropdown
+        function closeDropdown(resumeCycling = false) {
+          isDropdownOpen = false;
+          genderDropdown.classList.remove('active');
+          genderTag.setAttribute('aria-expanded', 'false');
+
+          if (resumeCycling && !userSelectedIcon) {
+            startCycling();
+          }
+        }
+
+        // Select an icon
+        function selectIcon(iconClass, closeAfter = false) {
+          userSelectedIcon = iconClass;
+          localStorage.setItem('selectedGenderIcon', iconClass);
+          setIcon(iconClass);
+          stopCycling();
+          highlightSelectedItem(iconClass);
+          if (closeAfter) {
+            closeDropdown(false);
+            genderTag.focus();
+          }
+        }
+
+        // Highlight selected item in dropdown
+        function highlightSelectedItem(iconClass) {
+          dropdownItems.forEach(item => {
+            if (item.dataset.icon === iconClass) {
+              item.classList.add('selected');
+              item.setAttribute('aria-selected', 'true');
+            } else {
+              item.classList.remove('selected');
+              item.setAttribute('aria-selected', 'false');
+            }
+          });
+        }
+
+        // Detect touch device
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        // Desktop: hover to show dropdown
+        if (!isTouchDevice) {
+          genderTag.addEventListener('mouseenter', function() {
+            openDropdown();
+          });
+
+          genderTag.addEventListener('mouseleave', function() {
+            closeDropdown(true);
+          });
+        }
+
+        // Mobile/Touch: press and swipe to select
+        if (isTouchDevice) {
+          let touchActive = false;
+
+          genderTag.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            touchActive = true;
+            openDropdown();
+          }, { passive: false });
+
+          document.addEventListener('touchmove', function(e) {
+            if (!touchActive || !isDropdownOpen) return;
+
+            const touch = e.touches[0];
+            const elementUnderTouch = document.elementFromPoint(touch.clientX, touch.clientY);
+
+            // Find if we're over a dropdown item
+            const dropdownItem = elementUnderTouch?.closest('.gender-dropdown-item');
+            if (dropdownItem) {
+              selectIcon(dropdownItem.dataset.icon, false);
+            }
+          }, { passive: true });
+
+          document.addEventListener('touchend', function(e) {
+            if (touchActive && isDropdownOpen) {
+              touchActive = false;
+              closeDropdown(false);
+            }
+          });
+        }
+
+        // Dropdown item selection
+        dropdownItems.forEach(item => {
+          item.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // On mobile, close after selection; on desktop, keep open
+            selectIcon(this.dataset.icon, isTouchDevice);
+          });
+
+          // Desktop: hover to select (keep dropdown open)
+          if (!isTouchDevice) {
+            item.addEventListener('mouseenter', function() {
+              selectIcon(this.dataset.icon, false);
+            });
+          }
+
+          // Keyboard support for dropdown items
+          item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectIcon(this.dataset.icon);
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const next = this.nextElementSibling;
+              if (next) next.focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              const prev = this.previousElementSibling;
+              if (prev) prev.focus();
+            } else if (e.key === 'Escape') {
+              closeDropdown(true);
+              genderTag.focus();
+            }
+          });
+        });
+
+        // Keyboard support for gender tag
+        genderTag.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (isDropdownOpen) {
+              closeDropdown(true);
+            } else {
+              openDropdown();
+            }
+          } else if (e.key === 'Escape' && isDropdownOpen) {
+            closeDropdown(true);
+          } else if (e.key === 'ArrowDown' && isDropdownOpen) {
+            e.preventDefault();
+            const firstItem = genderDropdown.querySelector('.gender-dropdown-item');
+            if (firstItem) firstItem.focus();
+          }
+        });
+
+        // Prevent clicks on dropdown from bubbling through
+        genderDropdown.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (isDropdownOpen && !genderTag.contains(e.target)) {
+            closeDropdown(true);
+          }
+        });
+
+        // Initialize
+        initializeIcon();
+      })();
     </script>
   </body>
 </html>
