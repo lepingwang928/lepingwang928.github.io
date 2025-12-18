@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leping Wang</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='%231a365d' d='M219.3 .5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128s-128-57.3-128-128V102.9L48 93.3v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3s-7.6 5.9-12.4 5.9H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64C0 52.6 8.1 42.7 19.3 40.5l200-40zM111.9 327.7c10.5-3.4 21.8 .4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5C401 348.6 448 409.4 448 481.3c0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z'/></svg>" />
     <meta
       name="description"
       content="Leping Wang is a sociology researcher at Boston University, specializing in medical sociology, aging, social networks, and quantitative methods."
@@ -12,8 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
-    <script src="https://kit.fontawesome.com/dcae19d2ac.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/dcae19d2ac.js" crossorigin="anonymous"></script>
     <style>
       :root {
         --primary-color: #1a365d;
@@ -115,7 +115,7 @@
       .nav-links li a i {
         width: 18px;
         height: 18px;
-        stroke: currentColor;
+        color: currentColor;
       }
 
       .hamburger {
@@ -135,7 +135,7 @@
       .hamburger i {
         width: 24px;
         height: 24px;
-        stroke: currentColor;
+        color: currentColor;
       }
 
       .hamburger:hover {
@@ -213,7 +213,7 @@
       .mobile-close i {
         width: 28px;
         height: 28px;
-        stroke: currentColor;
+        color: currentColor;
       }
 
       .mobile-close:hover {
@@ -253,7 +253,7 @@
         min-width: 24px;
         min-height: 24px;
         flex-shrink: 0;
-        stroke: currentColor;
+        color: currentColor;
         display: inline-block;
       }
 
@@ -310,7 +310,7 @@
       .social-button svg {
         width: 16px;
         height: 16px;
-        stroke: currentColor;
+        color: currentColor;
       }
       .social-button img {
         width: 16px;
@@ -371,7 +371,7 @@
       h2 i {
         width: 24px;
         height: 24px;
-        stroke: var(--primary-color);
+        color: var(--primary-color);
       }
 
       .profile-img {
@@ -460,7 +460,7 @@
       .social-link i {
         width: 16px;
         height: 16px;
-        stroke: currentColor;
+        color: currentColor;
       }
 
       .custom-icon {
@@ -972,7 +972,7 @@
       .modal-nav i {
         width: 32px;
         height: 32px;
-        stroke: white;
+        color: white;
       }
 
       .modal-prev {
@@ -1197,12 +1197,12 @@
       <div class="nav-container">
         <div class="nav-brand">Leping Wang</div>
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
-          <i data-feather="menu"></i>
+          <i class="fa-solid fa-bars"></i>
         </button>
         <ul class="nav-links">
-          <li><a href="#publications"><i data-feather="book-open"></i><span>Publications</span></a></li>
-          <li><a href="#awards"><i data-feather="award"></i><span>Awards</span></a></li>
-          <li><a href="#education"><i data-feather="book"></i><span>Education</span></a></li>
+          <li><a href="#publications"><i class="fa-regular fa-book-open"></i><span>Publications</span></a></li>
+          <li><a href="#awards"><i class="fa-regular fa-award"></i><span>Awards</span></a></li>
+          <li><a href="#education"><i class="fa-regular fa-book"></i><span>Education</span></a></li>
         </ul>
       </div>
     </nav>
@@ -1215,13 +1215,13 @@
       <div class="mobile-menu-header">
         <span>Navigation</span>
         <button class="mobile-close" id="mobileClose" aria-label="Close menu">
-          <i data-feather="x"></i>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <ul class="mobile-nav-links">
-        <li><a href="#publications" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span>Publications</span></a></li>
-        <li><a href="#awards" class="mobile-nav-link"><i data-feather="award"></i><span>Awards</span></a></li>
-        <li><a href="#education" class="mobile-nav-link"><i data-feather="book"></i><span>Education</span></a></li>
+        <li><a href="#publications" class="mobile-nav-link"><i class="fa-regular fa-book-open"></i><span>Publications</span></a></li>
+        <li><a href="#awards" class="mobile-nav-link"><i class="fa-regular fa-award"></i><span>Awards</span></a></li>
+        <li><a href="#education" class="mobile-nav-link"><i class="fa-regular fa-book"></i><span>Education</span></a></li>
       </ul>
     </div>
 
@@ -1232,7 +1232,7 @@
           <h1>Leping Wang</h1>
           <div class="social-buttons">
             <a href="https://www.linkedin.com/in/leping-w-13906b162" title="LinkedIn" class="social-button">
-              <i data-feather="linkedin"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
             </a>
             <a href="https://x.com/LepingWangSoc" title="X (Twitter)" class="social-button">
               <img src="assets/images/x-logo.svg" alt="X (Twitter)" />
@@ -1241,12 +1241,12 @@
         </div>
         <div class="contact-info">
           <span class="contact-item">
-            <div class="icon-small"><i data-feather="book"></i></div>
+            <div class="icon-small"><i class="fa-regular fa-book"></i></div>
             Post-doctoral Researcher, Department of Sociology, Vanderbilt University
           </span>
           <span class="contact-item">
             <a href="mailto:lw928@bu.edu" style="color: inherit; text-decoration: none">
-              <i data-feather="mail"></i>
+              <i class="fa-regular fa-envelope"></i>
               <span>leping.wang@vanderbilt.edu</span>
             </a>
           </span>
@@ -1259,7 +1259,7 @@
             rel="noopener noreferrer"
             class="social-link"
           >
-            <i data-feather="file-text"></i> CV
+            <i class="fa-regular fa-file-lines"></i> CV
           </a>
           <a
             href="https://scholar.google.com/citations?user=z8YFqEIAAAAJ&hl=en&oi=ao"
@@ -1342,17 +1342,14 @@
           </div>
         </div>
       </div>
- <!-- Self Introduction Section -->
-<section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      Welcome! I'm Leping Wang, a feminist medical sociologist, family demographer, and socio-cultural gerontologist.
-    </p>
-  </div>
-</section>
+
+      <section id="about" class="section">
+        <h2><i class="fa-regular fa-user"></i> About Me</h2>
+        <p>Welcome! I'm Leping Wang, a feminist medical sociologist, family demographer, and socio-cultural gerontologist.</p>
+      </section>
+
       <section id="publications" class="section">
-        <h2><i data-feather="book-open"></i> Selected Publications</h2>
+        <h2><i class="fa-regular fa-book-open"></i> Selected Publications</h2>
         <ul class="publications-list">
           <li class="publication-item">
             <a
@@ -1473,7 +1470,7 @@
       </section>
 
       <section id="awards" class="section">
-        <h2><i data-feather="award"></i> Awards & Recognition</h2>
+        <h2><i class="fa-regular fa-award"></i> Awards & Recognition</h2>
 
         <div class="award-item">
           <div class="award-content">
@@ -1614,10 +1611,10 @@
       <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="modal-close" aria-label="Close modal">&times;</button>
         <button class="modal-nav modal-prev" aria-label="Previous image">
-          <i data-feather="chevron-left"></i>
+          <i class="fa-solid fa-chevron-left"></i>
         </button>
         <button class="modal-nav modal-next" aria-label="Next image">
-          <i data-feather="chevron-right"></i>
+          <i class="fa-solid fa-chevron-right"></i>
         </button>
         <div class="modal-content">
           <img id="modalImage" src="" alt="" />
@@ -1625,7 +1622,7 @@
       </div>
 
       <section id="education" class="section">
-        <h2><i data-feather="book"></i> Education</h2>
+        <h2><i class="fa-regular fa-book"></i> Education</h2>
         <div class="education-item">
           <div class="degree-container">
             <span class="degree">Ph.D. in Sociology</span>
@@ -1662,14 +1659,6 @@
     </footer>
 
     <script>
-      // Initialize Feather Icons when DOM is ready
-      document.addEventListener('DOMContentLoaded', function() {
-        feather.replace();
-      });
-
-      // Also call immediately in case DOMContentLoaded already fired
-      feather.replace();
-
       // Navigation and Mobile Menu
       (function() {
         const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -1684,10 +1673,6 @@
           mobileMenu.classList.add('active');
           mobileBackdrop.classList.add('active');
           document.body.style.overflow = 'hidden';
-          // Reinitialize feather icons for mobile menu
-          requestAnimationFrame(() => {
-            feather.replace();
-          });
         });
 
         // Close mobile menu
@@ -1804,10 +1789,8 @@
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
 
-          // Reinitialize feather icons for modal buttons
+          // Set focus to close button for accessibility
           setTimeout(() => {
-            feather.replace();
-            // Set focus to close button for accessibility
             closeBtn.focus();
           }, 10);
         }
