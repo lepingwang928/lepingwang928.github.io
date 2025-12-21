@@ -687,6 +687,39 @@
         border-left: 2px solid var(--subtle-color);
       }
 
+      .committee {
+        font-size: 0.9rem;
+        color: #718096;
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+      }
+
+      .committee a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .committee a:hover {
+        text-decoration: underline;
+      }
+
+      .advisor {
+        font-size: 0.9rem;
+        color: #718096;
+        margin-top: 0.5rem;
+      }
+
+      .advisor a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .advisor a:hover {
+        text-decoration: underline;
+      }
+
       .publications-list {
         list-style: none;
       }
@@ -725,8 +758,74 @@
         padding: 0 2rem;
       }
 
+      .awards-group h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--subtle-color);
+        padding-bottom: 0.5rem;
+      }
+
       .awards-group + .awards-group {
         margin-top: 2.5rem;
+      }
+
+      /* Award entry card styles */
+      .award-entry {
+        margin-bottom: 2rem;
+        margin-left: 1.5rem;
+      }
+
+      .award-entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .award-org {
+        display: block;
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
+        color: var(--secondary-color);
+        margin-bottom: 0.25rem;
+      }
+
+      .award-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin: 0 0 0.5rem 0;
+        line-height: 1.4;
+      }
+
+      .award-recognition {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .recognition-dots {
+        display: flex;
+        gap: 3px;
+      }
+
+      .recognition-dots .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+      }
+
+      .recognition-count {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+
+      .award-years {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.7;
       }
 
       .publication-item em {
@@ -1387,7 +1486,7 @@
         Welcome! I'm Leping Wang, a feminist medical sociologist, family demographer, and socio-cultural gerontologist. I use advanced quantitative methods and a global comparative approach for my work. My work closely engages with feminist gerontology, critical gerontology, feminist life course theories, intersectionality, minority stress theory, and LGBTQ+ chosen family theory. I have three lines of research: 
      </p>
       <p style="margin-bottom: 1rem;">
-       My first line of research investigates how marriage as an institution exacerbates gender inequality in health, well-being and wealth over the life course. I have multiple publications that come out of this line of work. Two of them are from the project titled “Gender, Marital Histories and Late-life Poverty: Updating Social Security Rules for 21st Century Families” funded by the RRF Foundation (PI: Deborah Carr; co-I: Pamela Smock), published in the <em>Journal of Marriage and Family</em> and <em>The Gerontologist</em>. One comes out of my dissertation work on “The Impact of Social Connectedness on Older Adults’ Mental and Cognitive Health: A U.S.- China Comparison”, published in <em>Longitudinal and Life Course Studies</em>. At my current post-doc, I am working on the first-of-its-kind NIH-funded National Survey of Never Married Older Adults (NSONMA) to collect pilot survey data among nationally representative never-married U.S. older adults (PI: Lijun Song; Co-Is: Deborah Carr, Brea Perry, Tara McKay, Qingxia (Cindy) Chen, and Siyun Peng). 
+       My first line of research investigates how marriage as an institution exacerbates gender inequality in health, well-being and wealth over the life course. I have multiple publications that come out of this line of work. Two of them are from the project titled “Gender, Marital Histories and Late-life Poverty: Updating Social Security Rules for 21st Century Families” funded by the RRF Foundation (PI: <a href="https://sites.bu.edu/deborahcarr/" target="_blank" rel="noopener noreferrer">Deborah Carr</a>; co-I: <a href="https://lsa.umich.edu/soc/people/faculty/pjsmock.html" target="_blank" rel="noopener noreferrer">Pamela Smock</a>), published in the <em>Journal of Marriage and Family</em> and <em>The Gerontologist</em>. One comes out of my dissertation work on “The Impact of Social Connectedness on Older Adults’ Mental and Cognitive Health: A U.S.- China Comparison”, published in <em>Longitudinal and Life Course Studies</em>. At my current post-doc, I am working on the first-of-its-kind NIH-funded National Survey of Never Married Older Adults (NSONMA) to collect pilot survey data among nationally representative never-married U.S. older adults (PI: Lijun Song; Co-Is: Deborah Carr, Brea Perry, Tara McKay, Qingxia (Cindy) Chen, and Siyun Peng). 
       </p>
        <p style="margin-bottom: 1rem;">
       My second line of research explores the impact of social connectedness on health and well-being outcomes over the life course across the U.S. and China, and the gender differences therein. Stay tuned for some of my work in the pipeline!
@@ -1673,33 +1772,161 @@
         </div>
       </div>
 
-  <hr style="margin-left: 2rem; margin-right: 2rem;">
+  <!-- <hr style="margin-left: 2rem; margin-right: 2rem;"> -->
   <!-- Text-only awards: insert these after your existing .award-item blocks -->
   <div class="awards-group">
     <h3>Other External Grants &amp; Fellowships</h3>
-    <ul class="awards-list">
-      <li>Collaborative for Innovation in Data &amp; Measurement in Aging (CIDMA) Institute Travel Grant, The University of Chicago NIA P30 Center on Healthy Aging Behaviors and Longitudinal Investigations (CHABLIS), August 2025, August 2024, August 2023.</li>
-      <li>Best Practices in Comparative Life Course Research Mentorship Program Honorarium, Case Western Reserve University Department of Sociology, July 2024.</li>
-      <li>Social Networks and Health Fellowship, Duke University Network Analysis Center (DNAC), March 2025, April 2024.</li>
-      <li>Travel Stipend to the Population Association of America Annual Meeting, The University of Chicago NIA P30 Center on Healthy Aging Behaviors and Longitudinal Investigations (CHABLIS), March 2025, April 2024.</li>
-      <li>Network for Innovative Methods in Longitudinal Aging Studies (NIMLAS) Travel Support, University of Michigan Institute for Social Research, November 2024, January 2024.</li>
-      <li>Registration Grant, International Sociological Association Forum of Sociology, February 2020.</li>
-    </ul>
+
+    <div class="award-entry">
+      <span class="award-org">The University of Chicago NIA P30 Center on Healthy Aging Behaviors and Longitudinal Investigations (CHABLIS)</span>
+      <h4 class="award-name">Collaborative for Innovation in Data &amp; Measurement in Aging (CIDMA) Institute Travel Grant</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">3× Recipient</span>
+      </div>
+      <span class="award-years">2023 · 2024 · 2025</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Duke University Network Analysis Center (DNAC)</span>
+      <h4 class="award-name">Social Networks and Health Fellowship</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">2× Recipient</span>
+      </div>
+      <span class="award-years">2024 · 2025</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Case Western Reserve University Department of Sociology</span>
+      <h4 class="award-name">Best Practices in Comparative Life Course Research Mentorship Program Honorarium</h4>
+      <span class="award-years">July 2024</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">The University of Chicago NIA P30 Center on Healthy Aging Behaviors and Longitudinal Investigations (CHABLIS)</span>
+      <h4 class="award-name">Travel Stipend to the Population Association of America Annual Meeting</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">2× Recipient</span>
+      </div>
+      <span class="award-years">2024 · 2025</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">University of Michigan Institute for Social Research</span>
+      <h4 class="award-name">Network for Innovative Methods in Longitudinal Aging Studies (NIMLAS) Travel Support</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">2× Recipient</span>
+      </div>
+      <span class="award-years">January 2024 · November 2024</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">International Sociological Association Forum of Sociology</span>
+      <h4 class="award-name">Registration Grant</h4>
+      <span class="award-years">February 2020</span>
+    </div>
+
   </div>
 
   <div class="awards-group">
     <h3>Other Internal Grants &amp; Fellowships</h3>
-    <ul class="awards-list">
-      <li>Graduate School of Arts and Sciences Summer Fellowship, Boston University, June–July 2024, June–July 2023, June–July 2022, June–July 2021.</li>
-      <li>Morris Travel Support Grant, Boston University Department of Sociology, December 2024, May 2024, December 2023, May 2023.</li>
-      <li>Social Sciences PhD Summer Internship Fellowship, Boston University Graduate School of Arts &amp; Sciences &amp; The Center for Innovation in Social Science (CISS), June–August 2023, June–August 2022, June–August 2021.</li>
-      <li>The Center for Innovation in Social Science (CISS) Summer 2023 Mini-Grant, Boston University College of Arts and Sciences, May 2023.</li>
-      <li>Graduate Enrichment Fund, Boston University Graduate School of Arts and Sciences, April 2023.</li>
-      <li>Morris Collaborative Research Grant (with Jonathan Mijs), Boston University Department of Sociology, December 2021.</li>
-      <li>ICPSR Summer Grant, Boston University Graduate School of Arts and Sciences, June–August 2021.</li>
-      <li>Dean’s Fellowship, Boston University Graduate School of Arts and Sciences, September 2020–May 2021.</li>
-      <li>Summer Professional Development Fellowship (SPDF), Boston University Professional Development &amp; Postdoctoral Affairs, April 2021.</li>
-    </ul>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Graduate School of Arts &amp; Sciences &amp; The Center for Innovation in Social Science (CISS)</span>
+      <h4 class="award-name">Social Sciences PhD Summer Internship Fellowship</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">3× Recipient</span>
+      </div>
+      <span class="award-years">2021 · 2022 · 2023</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University</span>
+      <h4 class="award-name">Graduate School of Arts and Sciences Summer Fellowship</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">4× Recipient</span>
+      </div>
+      <span class="award-years">2021 · 2022 · 2023 · 2024</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Department of Sociology</span>
+      <h4 class="award-name">Morris Travel Support Grant</h4>
+      <div class="award-recognition">
+        <span class="recognition-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="recognition-count">4× Recipient</span>
+      </div>
+      <span class="award-years">May 2023 · December 2023 · May 2024 · December 2024</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University College of Arts and Sciences</span>
+      <h4 class="award-name">The Center for Innovation in Social Science (CISS) Summer 2023 Mini-Grant</h4>
+      <span class="award-years">May 2023</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Graduate School of Arts and Sciences</span>
+      <h4 class="award-name">Graduate Enrichment Fund</h4>
+      <span class="award-years">April 2023</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Department of Sociology</span>
+      <h4 class="award-name">Morris Collaborative Research Grant (with <a href="https://www.jonathanmijs.com/" target="_blank">Jonathan Mijs</a>)</h4>
+      <span class="award-years">December 2021</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Graduate School of Arts and Sciences</span>
+      <h4 class="award-name">ICPSR Summer Grant</h4>
+      <span class="award-years">June to August 2021</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Graduate School of Arts and Sciences</span>
+      <h4 class="award-name">Dean's Fellowship</h4>
+      <span class="award-years">September 2020 to May 2021</span>
+    </div>
+
+    <div class="award-entry">
+      <span class="award-org">Boston University Professional Development &amp; Postdoctoral Affairs</span>
+      <h4 class="award-name">Summer Professional Development Fellowship (SPDF)</h4>
+      <span class="award-years">April 2021</span>
+    </div>
+
   </div>
   <!-- end text-only awards -->
       
@@ -1715,6 +1942,9 @@
             Dissertation: The Impact of Social Connectedness and Social Capital on Older Adults' Mental and Cognitive Health: A U.S.- China
             Comparison
           </div>
+          <div class="committee">
+            Committee: <a href="https://sites.bu.edu/deborahcarr/" target="_blank" rel="noopener noreferrer">Deborah Carr</a> (Chair), <a href="https://www.nehagondal.com/home" target="_blank" rel="noopener noreferrer">Neha Gondal</a>, <a href="https://www.jonathanmijs.com/" target="_blank" rel="noopener noreferrer">Jonathan Mijs</a>, <a href="https://isr.umich.edu/about/faculty-profiles/westbrady-thomas/" target="_blank" rel="noopener noreferrer">Brady West</a> (University of Michigan)
+          </div>
         </div>
 
         <div class="education-item">
@@ -1723,6 +1953,7 @@
             <span class="year">(2020)</span>
           </div>
           <div class="institution">New York University</div>
+          <div class="advisor">Advisor: <a href="https://siwei-cheng.github.io/" target="_blank" rel="noopener noreferrer">Siwei Cheng</a></div>
         </div>
 
         <div class="education-item">
@@ -1731,6 +1962,7 @@
             <span class="year">(2018)</span>
           </div>
           <div class="institution">Xiamen University, China</div>
+          <div class="advisor">Advisor: <a href="https://ssa.xmu.edu.cn/info/1190/1147.htm" target="_blank" rel="noopener noreferrer">Rong Hu</a></div>
         </div>
       </section>
     </div>
