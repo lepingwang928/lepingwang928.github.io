@@ -209,14 +209,15 @@
         border: none;
         color: #1a202c;
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0;
         transition: var(--transition);
       }
 
       .mobile-close i {
-        width: 28px;
-        height: 28px;
+        width: 18px;
+        height: 18px;
         color: currentColor;
+        margin-top: 3px;
       }
 
       .mobile-close:hover {
@@ -706,18 +707,26 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        padding-left: 1.5rem;
       }
 
       .awards-list li {
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--subtle-color);
+        padding: 0.75rem 0;
         transition: var(--transition);
         position: relative;
       }
 
       .awards-list li:last-child {
-        border-bottom: none;
         padding-bottom: 0;
+      }
+
+      .awards-group {
+        margin-top: 2rem;
+        padding: 0 2rem;
+      }
+
+      .awards-group + .awards-group {
+        margin-top: 2.5rem;
       }
 
       .publication-item em {
@@ -1353,7 +1362,12 @@
             </span>
             <span class="research-tag">
               <div class="icon-small"><i class="fas fa-heart"></i></div>
-              Family Demography
+              Family
+            </span>
+            
+            <span class="research-tag">
+              <div class="icon-small"><i class="fas fa-globe"></i></div>
+              Global Comparative Sociology
             </span>
             <span class="research-tag">
               <div class="icon-small"><i class="fas fa-diagram-project"></i></div>
@@ -1368,9 +1382,8 @@
       </div>
 
       <section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <p style="margin-bottom: 1rem;">
+        <h2>About Me</h2>
+        <p style="margin-bottom: 1rem;">
         Welcome! I'm Leping Wang, a feminist medical sociologist, family demographer, and socio-cultural gerontologist. I use advanced quantitative methods and a global comparative approach for my work. My work closely engages with feminist gerontology, critical gerontology, feminist life course theories, intersectionality, minority stress theory, and LGBTQ+ chosen family theory. I have three lines of research: 
      </p>
       <p style="margin-bottom: 1rem;">
@@ -1385,7 +1398,6 @@
       <p style="margin-bottom: 1rem;">
       In addition to the three main lines of research, I am also committed to community-engaged research focused on the marginalized communities. My collaborative work that involves evaluating the social support program in Immokalee, Florida and developing harmonized matrices for evaluating community health workers' performance across lower- and middle-income countries has been published in <em>Global Health Action</em> and <em>Healthcare in Low-resource Settings</em>.
       </p>
-      </div>
       </section>
 
       <section id="publications" class="section">
@@ -1660,7 +1672,8 @@
           <img id="modalImage" src="" alt="" />
         </div>
       </div>
-      
+
+  <hr style="margin-left: 2rem; margin-right: 2rem;">
   <!-- Text-only awards: insert these after your existing .award-item blocks -->
   <div class="awards-group">
     <h3>Other External Grants &amp; Fellowships</h3>
@@ -1675,7 +1688,7 @@
   </div>
 
   <div class="awards-group">
-    <h3>Internal Grants &amp; Fellowships</h3>
+    <h3>Other Internal Grants &amp; Fellowships</h3>
     <ul class="awards-list">
       <li>Graduate School of Arts and Sciences Summer Fellowship, Boston University, June–July 2024, June–July 2023, June–July 2022, June–July 2021.</li>
       <li>Morris Travel Support Grant, Boston University Department of Sociology, December 2024, May 2024, December 2023, May 2023.</li>
